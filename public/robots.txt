@@ -1,0 +1,39 @@
+# robots.txt for 中小学学习资料网 (xuexi.ngy123.com)
+User-agent: *
+Allow: /
+
+# GEO (Generative Engine Optimization) - Explicit Allow for AI Search Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://xuexi.ngy123.com/sitemap.xml

@@ -1,0 +1,6 @@
+{
+  "name": "中小学学习资料网 - xuexi.ngy123.com",
+  "description": "专业的中小学学习资料网（xuexi.ngy123.com），提供必刷题、名校课堂、53系列、万唯中考、学霸笔记等夸克网盘资源与高效全文检索。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
