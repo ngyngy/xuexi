@@ -15,7 +15,7 @@ interface SubmittedRequest {
   subject: string;
   note: string;
   createdAt: string;
-  status: '处理中' | '已补齐';
+  status: string;
 }
 
 export const RequestResourceModal: React.FC<RequestResourceModalProps> = ({
@@ -101,7 +101,7 @@ export const RequestResourceModal: React.FC<RequestResourceModalProps> = ({
       subject,
       note: note.trim(),
       createdAt: new Date().toLocaleDateString('zh-CN'),
-      status: '处理中',
+      status: '请发送邮件至站长',
     };
 
     const updated = [newReq, ...myRequests];
@@ -112,9 +112,11 @@ export const RequestResourceModal: React.FC<RequestResourceModalProps> = ({
       // ignore localstorage errors
     }
 
-    setTitle('');
-    setNote('');
-    onShowToast(`求资源需求已提交！站长已收到提示，您亦可发邮件至 ${officialEmail} 加速处理！`, 'success');
+    // Automatically copy email body and launch mailto
+    handleCopyTemplateAndEmail();
+    setTimeout(() => {
+      window.location.href = mailtoUrl;
+    }, 400);
   };
 
   return (
@@ -285,21 +287,23 @@ export const RequestResourceModal: React.FC<RequestResourceModalProps> = ({
               </div>
             </div>
 
-            {/* Web Backup Form Option */}
-            <form onSubmit={handleSubmitWebForm} className="border-t border-slate-200 pt-4 space-y-2">
+            {/* Email Tip Notice */}
+            <form onSubmit={handleSubmitWebForm} className="border-t border-slate-200 pt-3 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-700 flex items-center gap-1">
-                  <MessageSquarePlus className="w-3.5 h-3.5 text-slate-500" />
-                  或者：直接在网页提交求资源登记
+                <span className="text-[11px] font-bold text-slate-700 flex items-center gap-1">
+                  <MessageSquarePlus className="w-3.5 h-3.5 text-indigo-600" />
+                  一键发送邮件需求给站长
                 </span>
-                <span className="text-[10px] text-slate-400">无需邮箱直接留痕</span>
+                <span className="text-[10px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 font-medium">
+                  直接发送到 hi@ngy123.com
+                </span>
               </div>
               <button
                 type="submit"
-                className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-all border border-slate-200"
+                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md shadow-indigo-500/20 active:scale-98"
               >
-                <Send className="w-3.5 h-3.5 text-slate-500" />
-                <span>在网页端直接提交留痕需求</span>
+                <Send className="w-3.5 h-3.5 text-white" />
+                <span>生成模板并打开邮箱发送给站长</span>
               </button>
             </form>
 
