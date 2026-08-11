@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, BookOpen, Star, Download, HelpCircle, MessageSquarePlus, Sparkles } from 'lucide-react';
+import { Search, BookOpen, Star, Download, HelpCircle, MessageSquarePlus, Sparkles, Mail } from 'lucide-react';
 import { HOT_SEARCH_TAGS } from '../data/resources';
 
 interface HeaderProps {
@@ -75,10 +75,11 @@ export const Header: React.FC<HeaderProps> = ({
 
             <button
               onClick={onOpenRequestModal}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg bg-slate-800 hover:bg-slate-700/80 text-indigo-300 border border-indigo-500/30 transition-all shadow-sm"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg bg-indigo-900/60 hover:bg-indigo-800/80 text-indigo-200 border border-indigo-400/40 transition-all shadow-sm group"
+              title="没找到资料？发邮件至 hi@ngy123.com 求资源"
             >
-              <MessageSquarePlus className="w-4 h-4 text-indigo-400" />
-              <span>求资料/反馈</span>
+              <Mail className="w-4 h-4 text-indigo-300 group-hover:scale-110 transition-transform" />
+              <span>求资源 (hi@ngy123.com)</span>
             </button>
 
             <button

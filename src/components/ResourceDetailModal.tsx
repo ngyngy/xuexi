@@ -111,8 +111,13 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   <span>夸克网盘独家分享 (资源实时有效)</span>
                 </div>
-                <p className="text-xs text-slate-600 break-all font-mono">
-                  {resource.quarkUrl}
+                <p className="text-xs text-slate-600 break-all font-mono flex flex-wrap items-center gap-2">
+                  <span>{resource.quarkUrl}</span>
+                  {resource.shareCode && (
+                    <span className="font-bold text-amber-800 bg-amber-100/80 border border-amber-200 px-2 py-0.5 rounded text-[11px]">
+                      口令: {resource.shareCode}
+                    </span>
+                  )}
                 </p>
               </div>
 

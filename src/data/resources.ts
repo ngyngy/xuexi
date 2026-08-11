@@ -2,6 +2,72 @@ import { Resource } from '../types';
 
 export const RESOURCES_DATA: Resource[] = [
   {
+    id: 'res-020',
+    title: '2026秋小学语数英热门学习资料大合集',
+    grade: '小学',
+    gradeDetail: '1-6年级',
+    subject: '全科',
+    series: '综合资源',
+    version: '2026秋季版',
+    edition: '统编版/人教版/苏教版等多版本',
+    format: '网盘合集',
+    quarkUrl: 'https://pan.quark.cn/s/2d43f20071ff',
+    shareCode: '/~a32a3a8UnQ~:/',
+    description: '2026最新秋季学期小学语文、数学、英语全科热门学习资料大合集，包含开学预习讲义、同步达标测试卷、期中期末名校密卷及提分总结。',
+    highlights: [
+      '收录2026最新秋季开学各年级语数英核心教辅与名师讲义',
+      '包含小学1-6年级上下册全套同步试卷与重难点剖析',
+      '附赠单元过关测试、期中期末冲刺押题卷与参考答案',
+      '高清PDF与Word可打印格式，夸克网盘极速免费转存'
+    ],
+    contents: [
+      '2026秋小学语文（课文预习讲义+生字词语打卡+阅读理解）',
+      '2026秋小学数学（思维导图+口算速算+应用题专项）',
+      '2026秋小学英语（全册单词听写表+语法知识汇总）',
+      '名校期中、期末真题模拟卷与答题卡'
+    ],
+    recommendedFor: '适用于小学一至六年级学生秋季学期同步预习、课后复习及家长高效辅导。',
+    rating: 4.98,
+    downloadCount: 32600,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['2026秋季', '小学语数英', '热门合集', '1-6年级', '同步试卷', '夸克网盘']
+  },
+  {
+    id: 'res-021',
+    title: '小学英语语法专题学习资料包',
+    grade: '小学',
+    gradeDetail: '3-6年级/小升初',
+    subject: '英语',
+    series: '综合资源',
+    version: '专项突破版',
+    edition: '通用版',
+    format: 'PDF电子书',
+    quarkUrl: 'https://pan.quark.cn/s/ce85b59f8c06',
+    shareCode: '/~17f53a8VJ2~:/',
+    description: '针对小学中高年级及小升初打造的英语语法专项提分学习资料包，系统梳理词性、时态、句型结构及易错语法题解题秘籍。',
+    highlights: [
+      '全面覆盖小学英语核心语法（名词单复数、时态、人称代词、介词等）',
+      '采用图解与思维导图拆解复杂语法规则，生动直观易记忆',
+      '配有分类语法专项练习题与错题归纳技巧，查漏补缺',
+      '轻松搞定小升初英语语法填空、单项选择与句型转换大题'
+    ],
+    contents: [
+      '小学英语八大核心时态精讲与顺口溜记忆法',
+      '词性专项（名词/动词/形容词/副词/介词/代词）考点全解',
+      '句型转换（肯定句/否定句/疑问句/感叹句）解题秘籍',
+      '小升初英语语法高频易错100题与名师详细解析'
+    ],
+    recommendedFor: '适用于小学三至六年级英语语法打基础、小升初英语冲刺满分学生。',
+    rating: 4.96,
+    downloadCount: 25400,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['小学英语', '英语语法', '语法专题', '小升初', '图解语法', 'PDF资料包']
+  },
+  {
     id: 'res-001',
     title: '001 小学必刷题（全科提分名优刷题库）',
     grade: '小学',
@@ -616,6 +682,8 @@ export const RESOURCES_DATA: Resource[] = [
 ];
 
 export const HOT_SEARCH_TAGS = [
+  '2026秋小学语数英',
+  '小学英语语法',
   '2026名校课堂',
   '万唯中考',
   '53系列',

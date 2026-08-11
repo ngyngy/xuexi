@@ -14,7 +14,7 @@ import { FavoritesDrawer } from './components/FavoritesDrawer';
 import { Toast, ToastMessage } from './components/Toast';
 import { Footer } from './components/Footer';
 
-import { BookOpen, SearchX, Sparkles, Flame, CheckCircle2 } from 'lucide-react';
+import { BookOpen, SearchX, Sparkles, Flame, CheckCircle2, Mail } from 'lucide-react';
 
 export default function App() {
   // Filters State
@@ -80,11 +80,12 @@ export default function App() {
 
   // Copy Quark Link
   const handleCopyLink = (resource: Resource) => {
-    const formattedText = `【中小学学习资料网推荐 (xuexi.ngy123.com)】夸克网盘分享：「${resource.title}」\n链接：${resource.quarkUrl}\n点击链接或复制整段内容，打开「夸克APP」即可获取与转存。`;
+    const koulingLine = resource.shareCode ? `${resource.shareCode}\n` : '';
+    const formattedText = `【中小学学习资料网推荐 (xuexi.ngy123.com)】夸克网盘分享：「${resource.title}」\n${koulingLine}链接：${resource.quarkUrl}\n点击链接或复制整段内容，打开「夸克APP」即可获取与转存。`;
     
     if (navigator.clipboard) {
       navigator.clipboard.writeText(formattedText).then(() => {
-        addToast(`已复制「${resource.title}」夸克网盘链接！`, 'success');
+        addToast(`已复制「${resource.title}」夸克网盘口令与链接！`, 'success');
       }).catch(() => {
         addToast(`网盘链接：${resource.quarkUrl}`, 'info');
       });
@@ -159,6 +160,34 @@ export default function App() {
           onReset={handleResetFilters}
           activeSearchQuery={searchQuery}
         />
+
+        {/* Request Resource Prompt Banner */}
+        <div className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-blue-900/90 via-indigo-900/90 to-slate-900 text-white border border-indigo-500/30 shadow-lg flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-bold shrink-0 shadow">
+              <Mail className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-extrabold text-sm text-white">没找到想要的资料？欢迎发邮件求资源</span>
+                <span className="text-[10px] bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded-full font-bold">
+                  官方邮箱
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 mt-0.5">
+                发送邮件至 <code className="font-mono text-amber-300 font-bold bg-slate-800/80 px-1.5 py-0.5 rounded border border-slate-700">hi@ngy123.com</code>，站长收到后会优先全网搜索并上传夸克网盘！
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setIsRequestModalOpen(true)}
+            className="w-full md:w-auto px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs transition-all shadow active:scale-95 shrink-0 flex items-center justify-center gap-1.5"
+          >
+            <Mail className="w-4 h-4 text-slate-900" />
+            <span>立即发邮件求资源</span>
+          </button>
+        </div>
 
         {/* Resource Grid / List */}
         {filteredResources.length > 0 ? (

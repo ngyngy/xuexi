@@ -4,46 +4,70 @@ import { BookOpen, ShieldCheck, Heart, Sparkles, ExternalLink } from 'lucide-rea
 export const Footer: React.FC = () => {
   const friendLinks = [
     {
-      url: 'https://btc.ngy123.com',
+      url: 'http://btc.ngy123.com/',
       domain: 'btc.ngy123.com',
       title: '比特币导航站',
       desc: '在百度搜“比特币导航、比特币资源”，这个网站都排第一。',
     },
     {
-      url: 'https://fabi.ngy123.com',
+      url: 'http://fabi.ngy123.com/',
       domain: 'fabi.ngy123.com',
       title: '全球法币排行榜',
       desc: '在百度搜“法币排行”排第四。',
     },
     {
-      url: 'https://eth.ngy123.com',
+      url: 'http://eth.ngy123.com/',
       domain: 'eth.ngy123.com',
       title: '以太坊资源导航',
-      desc: '精选以太坊生态与资源导航。',
+      desc: '精选以太坊生态与学习资源导航。',
     },
     {
-      url: 'https://gxs.ngy123.com',
+      url: 'http://gxs.ngy123.com/',
       domain: 'gxs.ngy123.com',
       title: '高晓松资源下载',
-      desc: '高晓松相关作品与音频资源。',
+      desc: '高晓松相关作品与音频资源下载。',
     },
     {
-      url: 'https://btczy.ngy123.com',
+      url: 'http://btczy.ngy123.com/',
       domain: 'btczy.ngy123.com',
       title: '比特币资源下载站',
       desc: '区块链与比特币优质资源下载。',
     },
     {
-      url: 'https://binance.ngy123.com',
+      url: 'http://binance.ngy123.com/',
       domain: 'binance.ngy123.com',
       title: '币安 Binance',
       desc: '全球领先数字资产交易平台导航。',
     },
     {
-      url: 'https://okx.ngy123.com',
+      url: 'http://okx.ngy123.com/',
       domain: 'okx.ngy123.com',
       title: '欧易 OKX',
       desc: '欧易 OKX Web3 与交易导航。',
+    },
+    {
+      url: 'http://tianya.ngy123.com/',
+      domain: 'tianya.ngy123.com',
+      title: '天涯神贴分享站',
+      desc: '天涯论坛经典神帖与珍贵文档合集。',
+    },
+    {
+      url: 'http://xuexi.ngy123.com/',
+      domain: 'xuexi.ngy123.com',
+      title: '中小学学习资料网',
+      desc: '小学初中高中全科必刷题与万唯53资源。',
+    },
+    {
+      url: 'http://dy.ngy123.com/',
+      domain: 'dy.ngy123.com',
+      title: '电影资源站',
+      desc: '高清电影影音资源与观影指南。',
+    },
+    {
+      url: 'http://ai.ngy123.com/',
+      domain: 'ai.ngy123.com',
+      title: 'AI导航',
+      desc: '人工智能大模型、AI工具与应用导航。',
     },
   ];
 
