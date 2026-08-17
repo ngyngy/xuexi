@@ -2,6 +2,72 @@ import { Resource } from '../types';
 
 export const RESOURCES_DATA: Resource[] = [
   {
+    id: 'res-000',
+    title: '全站资源汇总',
+    grade: '全学段',
+    gradeDetail: '小学/初中/高中全学科精选',
+    subject: '全科',
+    series: '综合资源',
+    version: '2026全网精选汇总版',
+    edition: '统编版/人教版/北师大等全版本',
+    format: '网盘合集',
+    quarkUrl: 'https://pan.quark.cn/s/404f2368c127',
+    shareCode: '祄已诶低并并诶第袄一五汢\n/~e3023aDADg~:/',
+    description: '全网中小学全干货学习资源超级大汇总！涵盖小学、初中、高中全学段语数英物化生政史地全科必刷题、名师讲义、真题密卷与提分导图。',
+    highlights: [
+      '全学段大满贯：小学1-6年级、初中7-9年级、高中高一至高三全科收录',
+      '纯干货无废话：精选名校期中期末试卷、中高考冲刺提分讲义与解题大招',
+      '高清电子文档：包含PDF/Word可打印试卷、思维导图、全套课件教案',
+      '夸克网盘极速转存：附带口令与直达链接，支持高速批量保存'
+    ],
+    contents: [
+      '【小学全科】语数英核心教辅、课文预习讲义、单元达标卷、小升初密卷',
+      '【初中全科】中考一轮/二轮复习、万唯/53系列名优教辅、各省名校模拟卷',
+      '【高中全科】高考提分专题、名校联考模考卷、学霸手写笔记与易错总结',
+      '【专项拓展】重难点公式定理速记表、各学科思维导图与答题模板合集'
+    ],
+    recommendedFor: '适用于小学、初中、高中各年级学生全面复习冲刺，以及家长高效辅导与教师备课。',
+    rating: 5.0,
+    downloadCount: 68900,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['全站资源汇总', '全学段', '全科大合集', '夸克网盘', '必刷题', '中高考冲刺', '热门精选']
+  },
+  {
+    id: 'res-022',
+    title: '少儿编程全套学习课件（点击保存立即查看）',
+    grade: '小学',
+    gradeDetail: '少儿/中小学(Scratch/Python/C++)',
+    subject: '国学/拓展',
+    series: '综合资源',
+    version: '名师精品课件全套版',
+    edition: 'Scratch+Python+C++信奥赛通用版',
+    format: '全套课件/教案',
+    quarkUrl: 'https://pan.quark.cn/s/9c6c94ce5e23',
+    shareCode: '/~ecaf3aGFKf~:/',
+    description: '少儿编程全套名师系统学习课件与教案源码大礼包！涵盖Scratch图形化编程趣味启蒙、Python人工智能编程基础、C++算法与信奥赛CSP考级进阶全套PPT课件、源码与实战项目。',
+    highlights: [
+      '系统进阶路线：Scratch图形化启蒙 ➔ Python趣味编程 ➔ C++算法与信奥竞赛',
+      '全套精美课件：包含PPT多媒体课件、教师教案、配套项目源码与课堂练习',
+      '趣味实战开发：包含经典小游戏开发、动画制作、AI工具应用与算法专项',
+      '夸克网盘极速转存：课件/源码/视频教程分门别类，即存即学，永久有效'
+    ],
+    contents: [
+      '【Scratch阶段】入门到精通PPT课件+几十款趣味小游戏源码工程',
+      '【Python阶段】语法基础+turtle海龟绘图+小项目实战+名师教案',
+      '【C++信奥赛阶段】C++基础语法+常用算法与数据结构+CSP-J/S真题题解',
+      '【等级考试专题】青少年编程考级辅导课件与模拟试题精选'
+    ],
+    recommendedFor: '适用于中小学生少儿编程启蒙与考级竞赛、信息技术教师备课、家长辅导孩子拓展科技素养。',
+    rating: 4.97,
+    downloadCount: 38200,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['少儿编程', 'Scratch课件', 'Python编程', 'C++信奥赛', '全套课件', '教案源码', '夸克网盘']
+  },
+  {
     id: 'res-020',
     title: '2026秋小学语数英热门学习资料大合集',
     grade: '小学',
@@ -682,6 +748,8 @@ export const RESOURCES_DATA: Resource[] = [
 ];
 
 export const HOT_SEARCH_TAGS = [
+  '全站资源汇总',
+  '少儿编程',
   '2026秋小学语数英',
   '小学英语语法',
   '2026名校课堂',
