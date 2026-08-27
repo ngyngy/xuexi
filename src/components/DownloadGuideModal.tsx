@@ -53,7 +53,7 @@ export const DownloadGuideModal: React.FC<DownloadGuideModalProps> = ({ isOpen, 
                   <span>复制资料链接或口令</span>
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  在中小学学习资料网点击资料卡片上的【复制链接】或【直达夸克APP保存】，系统会自动复制完整的夸克分享链接及提取口令。
+                  在学习资料网点击资料卡片上的【复制链接】或【直达夸克APP保存】，系统会自动复制完整的夸克分享链接及提取口令。
                 </p>
               </div>
             </div>

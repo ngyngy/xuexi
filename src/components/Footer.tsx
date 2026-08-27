@@ -4,6 +4,12 @@ import { BookOpen, ShieldCheck, Heart, Sparkles, ExternalLink } from 'lucide-rea
 export const Footer: React.FC = () => {
   const friendLinks = [
     {
+      url: 'https://www.wangpan8.com',
+      domain: 'wangpan8.com',
+      title: 'wangpan8 网盘总站',
+      desc: '网盘资源总站导航，汇聚全网优质网盘合集。',
+    },
+    {
       url: 'http://btc.ngy123.com/',
       domain: 'btc.ngy123.com',
       title: '比特币导航站',
@@ -54,8 +60,8 @@ export const Footer: React.FC = () => {
     {
       url: 'http://xuexi.ngy123.com/',
       domain: 'xuexi.ngy123.com',
-      title: '中小学学习资料网',
-      desc: '小学初中高中全科必刷题与万唯53资源。',
+      title: '学习资料网',
+      desc: '小学初中高中全科必刷题、四六级与考研考证网盘资源。',
     },
     {
       url: 'http://dy.ngy123.com/',
@@ -82,12 +88,12 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-slate-200 text-sm">中小学学习资料网</span>
+                <span className="font-bold text-slate-200 text-sm">学习资料网</span>
                 <span className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-slate-700">
                   xuexi.ngy123.com
                 </span>
               </div>
-              <span className="text-[11px] text-slate-500">中小学全科提分资料库</span>
+              <span className="text-[11px] text-slate-500">全科提分与考研考级资料库</span>
             </div>
           </div>
 
@@ -174,7 +180,7 @@ export const Footer: React.FC = () => {
         <div className="text-center md:text-left space-y-2 text-slate-500 leading-relaxed max-w-4xl pt-2 border-t border-slate-800/80">
           <p>
             <strong>免责声明：</strong>
-            本站（中小学学习资料网 xuexi.ngy123.com）所有中小学学习资料（包括必刷题、53系列、万唯中考、名校课堂、试卷等）均收集自网络公开分享资源，版权归原出版机构或原作者所有。本站仅作分类索引与教学交流学习之用，不收取任何下载费用。如认为侵权，请联系我们及时下架。
+            本站（学习资料网 xuexi.ngy123.com）所有学习资料（包括小学、初中、高中、大学英语、考研考证等）均收集自网络公开分享资源，版权归原出版机构或原作者所有。本站仅作分类索引与教学交流学习之用，不收取任何下载费用。如认为侵权，请联系我们及时下架。
           </p>
           <p>
             建议广大师生及家长通过夸克网盘客户端转存至个人空间后学习参考。请支持正版纸质图书！
@@ -183,11 +189,11 @@ export const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-2">
-          <div>© {new Date().getFullYear()} 中小学学习资料网 (xuexi.ngy123.com) · 站长：南宫远 (@nangongyuan)</div>
+          <div>© {new Date().getFullYear()} 学习资料网 (xuexi.ngy123.com) · 站长：南宫远 (@nangongyuan)</div>
           <div className="flex items-center gap-1 text-slate-500">
             <span>用</span>
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-            <span>用心助力每一位中小学生的提分之路</span>
+            <span>用心助力每一位学习者的提升之路</span>
           </div>
         </div>
       </div>

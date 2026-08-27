@@ -67,7 +67,7 @@ export const RequestResourceModal: React.FC<RequestResourceModalProps> = ({
 4. 补充说明/特定版本：${note.trim() || '无特殊说明，要求高清PDF可打印版'}
 
 ---
-发送自【中小学学习资料网 xuexi.ngy123.com】用户求资源`;
+发送自【学习资料网 xuexi.ngy123.com】用户求资源`;
   };
 
   const handleCopyTemplateAndEmail = () => {

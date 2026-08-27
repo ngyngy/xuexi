@@ -83,17 +83,26 @@ export default function App() {
     });
   };
 
-  // Copy Quark Link
+  // Copy Pan Link (Quark or Baidu)
   const handleCopyLink = (target: Resource | string, titleName?: string) => {
     const title = typeof target === 'string' ? (titleName || '学习资料') : target.title;
     const url = typeof target === 'string' ? target : target.quarkUrl;
+    const isBaidu = typeof target !== 'string' && (target.panType === 'baidu' || url.includes('pan.baidu.com'));
+    const extractCode = typeof target !== 'string' ? (target.extractCode || '') : '';
     const shareCode = typeof target === 'string' ? '' : (target.shareCode || '');
-    const koulingLine = shareCode ? `${shareCode}\n` : '';
-    const formattedText = `【wangpan8.com 夸克网盘分享】：「${title}」\n${koulingLine}链接：${url}\n点击链接或复制整段内容，打开「夸克APP」即可获取与转存。`;
+    
+    let formattedText = '';
+    if (isBaidu) {
+      const pwdText = extractCode ? ` 提取码: ${extractCode}` : '';
+      formattedText = `【wangpan8.com 百度网盘分享】：「${title}」\n链接: ${url}${pwdText}\n--来自百度网盘分享，点击链接或复制整段内容打开「百度网盘APP」即可转存。`;
+    } else {
+      const koulingLine = shareCode ? `${shareCode}\n` : '';
+      formattedText = `【wangpan8.com 夸克网盘分享】：「${title}」\n${koulingLine}链接：${url}\n点击链接或复制整段内容，打开「夸克APP」即可获取与转存。`;
+    }
     
     if (navigator.clipboard) {
       navigator.clipboard.writeText(formattedText).then(() => {
-        addToast(`已复制「${title}」夸克网盘口令与链接！`, 'success');
+        addToast(`已复制「${title}」${isBaidu ? '百度网盘' : '夸克网盘'}链接与提取信息！`, 'success');
       }).catch(() => {
         addToast(`网盘链接：${url}`, 'info');
       });

@@ -48,6 +48,9 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
     window.open(resource.quarkUrl, '_blank', 'noopener,noreferrer');
   };
 
+  const isBaidu = resource.panType === 'baidu' || resource.quarkUrl.includes('pan.baidu.com');
+  const panName = resource.panName || (isBaidu ? '百度网盘' : '夸克网盘');
+
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
@@ -109,10 +112,15 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               <div className="space-y-1">
                 <div className="flex items-center gap-1.5 font-bold text-slate-900 text-sm">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>夸克网盘独家分享 (资源实时有效)</span>
+                  <span>{panName}独家分享 (资源实时有效)</span>
                 </div>
                 <p className="text-xs text-slate-600 break-all font-mono flex flex-wrap items-center gap-2">
                   <span>{resource.quarkUrl}</span>
+                  {resource.extractCode && (
+                    <span className="font-bold text-emerald-800 bg-emerald-100/90 border border-emerald-300 px-2 py-0.5 rounded text-[11px]">
+                      提取码: {resource.extractCode}
+                    </span>
+                  )}
                   {resource.shareCode && (
                     <span className="font-bold text-amber-800 bg-amber-100/80 border border-amber-200 px-2 py-0.5 rounded text-[11px]">
                       口令: {resource.shareCode}
@@ -128,11 +136,11 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
                     handleOpenQuarkDirectly();
                   }}
                   className="w-full sm:w-auto relative group overflow-hidden rounded-xl bg-slate-950 p-[2px] transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-orange-500/25 cursor-pointer"
-                  title="自动复制口令并直达夸克网盘"
+                  title={`自动复制链接并直达${panName}`}
                 >
                   <div className="py-2.5 px-4 rounded-[10px] bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 tracking-wide group-hover:brightness-110 transition-all">
                     <Download className="w-4 h-4 stroke-[2.5] text-white shrink-0" />
-                    <span>获取资源 (夸克网盘)</span>
+                    <span>获取资源 ({panName})</span>
                   </div>
                 </button>
               </div>
@@ -252,9 +260,10 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               <button
                 onClick={() => onCopyLink(resource)}
                 className="px-3.5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm shrink-0"
+                title={`复制${panName}链接与提取码`}
               >
                 <Share2 className="w-4 h-4 text-blue-600" />
-                <span>仅复制口令</span>
+                <span>{resource.extractCode ? `复制链接+码(${resource.extractCode})` : '仅复制口令'}</span>
               </button>
 
               <button
@@ -266,7 +275,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               >
                 <div className="py-2.5 px-4 rounded-[10px] bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 tracking-wide group-hover:brightness-110 transition-all">
                   <Download className="w-4 h-4 stroke-[2.5] text-white shrink-0" />
-                  <span>获取资源 (夸克网盘)</span>
+                  <span>获取资源 ({panName})</span>
                 </div>
               </button>
             </div>

@@ -31,6 +31,9 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
     }
   };
 
+  const isBaidu = resource.panType === 'baidu' || resource.quarkUrl.includes('pan.baidu.com');
+  const panName = resource.panName || (isBaidu ? '百度网盘' : '夸克网盘');
+
   return (
     <div className="bg-white rounded-2xl border border-slate-200 hover:border-blue-400 hover:shadow-xl transition-all duration-250 flex flex-col justify-between group overflow-hidden relative">
       {/* Top Banner Accent */}
@@ -138,11 +141,11 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
             window.open(resource.quarkUrl, '_blank', 'noopener,noreferrer');
           }}
           className="w-full relative group overflow-hidden rounded-xl bg-slate-950 p-[2px] transition-all hover:scale-[1.01] active:scale-[0.98] shadow-md hover:shadow-orange-500/25 cursor-pointer"
-          title="点击自动复制网盘口令并直达夸克网盘保存"
+          title={`点击自动复制链接与提取码并直达${panName}保存`}
         >
           <div className="w-full py-2.5 px-3 rounded-[10px] bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 tracking-wide group-hover:brightness-110 transition-all">
             <Download className="w-4 h-4 stroke-[2.5] text-white shrink-0" />
-            <span>获取资源 (夸克网盘)</span>
+            <span>获取资源 ({panName})</span>
           </div>
         </button>
 
@@ -150,10 +153,10 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
           <button
             onClick={() => onCopyLink(resource)}
             className="text-slate-600 hover:text-blue-600 font-medium flex items-center gap-1 transition-colors"
-            title="一键复制夸克网盘链接与口令"
+            title={`一键复制${panName}链接与提取码`}
           >
             <Copy className="w-3.5 h-3.5 text-slate-400" />
-            <span>仅复制口令</span>
+            <span>{resource.extractCode ? `复制链接+码(${resource.extractCode})` : '仅复制口令'}</span>
           </button>
 
           <button

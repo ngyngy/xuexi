@@ -35,22 +35,34 @@ export const Header: React.FC<HeaderProps> = ({
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <h1 className="text-xl sm:text-2xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-sky-100 to-blue-200">
-                  中小学学习资料网
+                  学习资料网
                 </h1>
                 <span className="text-xs px-2 py-0.5 rounded-full font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30">
                   xuexi.ngy123.com
                 </span>
               </div>
               <p className="text-xs text-slate-400 flex items-center gap-1.5 mt-0.5">
-                <span>中小学全科提分资料</span>
+                <span>小学 · 初中 · 高中 · 四六级 · 考研考证</span>
                 <span className="w-1 h-1 rounded-full bg-slate-500" />
-                <span>必刷题 · 53系列 · 万唯中考 · 学霸笔记</span>
+                <span>必刷题 · 名校真题 · 网盘精选</span>
               </p>
             </div>
           </div>
 
           {/* Action Buttons */}
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            {/* Wangpan8 Main Portal Button */}
+            <a
+              href="https://www.wangpan8.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 shadow-md shadow-amber-500/20 border border-amber-300 transition-all transform hover:scale-[1.02] active:scale-95"
+              title="访问网盘总站：www.wangpan8.com"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-slate-950 animate-pulse" />
+              <span>总站入口 (wangpan8.com)</span>
+            </a>
+
             <a
               href="https://x.com/nangongyuan"
               target="_blank"

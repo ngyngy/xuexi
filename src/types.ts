@@ -23,6 +23,9 @@ export interface Resource {
   format: '网盘合集' | 'PDF电子书' | 'Word/试卷' | '全套课件/教案';
   quarkUrl: string;
   shareCode?: string;
+  extractCode?: string; // e.g. "e58i" for Baidu pan or other cloud drives
+  panType?: 'quark' | 'baidu' | 'other';
+  panName?: string; // e.g. "百度网盘", "夸克网盘"
   description: string;
   highlights: string[];
   contents: string[];

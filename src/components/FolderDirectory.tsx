@@ -32,14 +32,8 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
   onRequestResource,
   searchQuery = '',
 }) => {
-  // Store expanded state for each folder. By default, open primary, junior, senior, cet, cert
-  const [expandedFolderIds, setExpandedFolderIds] = useState<Record<string, boolean>>({
-    primary: true,
-    junior: true,
-    senior: true,
-    cet: true,
-    cert: true,
-  });
+  // Store expanded state for each folder. By default, collapse all folders
+  const [expandedFolderIds, setExpandedFolderIds] = useState<Record<string, boolean>>({});
 
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -108,8 +102,18 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
           </div>
         </div>
 
-        {/* Global Expand / Collapse Actions */}
-        <div className="flex items-center gap-2">
+        {/* Global Expand / Collapse Actions & Main Portal Entrance */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <a
+            href="https://www.wangpan8.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs transition-all shadow-xs"
+            title="访问网盘总站：www.wangpan8.com"
+          >
+            <span>总站入口</span>
+            <ExternalLink className="w-3 h-3 text-slate-900" />
+          </a>
           <button
             onClick={expandAll}
             className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
@@ -223,6 +227,16 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
                                 <span className="text-sm font-bold text-slate-900 group-hover/item:text-emerald-900 transition-colors">
                                   {res.title}
                                 </span>
+                                {res.panType === 'baidu' && (
+                                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-blue-50 text-blue-700 border border-blue-200">
+                                    百度网盘
+                                  </span>
+                                )}
+                                {res.extractCode && (
+                                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    提取码: {res.extractCode}
+                                  </span>
+                                )}
                                 <span className="text-xs text-slate-500 font-normal line-clamp-1">
                                   - {res.description.replace(/（本资源由wangpan8\.com提供）/, '')}
                                 </span>
