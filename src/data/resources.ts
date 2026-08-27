@@ -4,6 +4,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-000',
     title: '全站资源汇总',
+    folderId: 'all',
     grade: '全学段',
     gradeDetail: '小学/初中/高中全学科精选',
     subject: '全科',
@@ -37,6 +38,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-022',
     title: '少儿编程全套学习课件（点击保存立即查看）',
+    folderId: 'primary',
     grade: '小学',
     gradeDetail: '少儿/中小学(Scratch/Python/C++)',
     subject: '国学/拓展',
@@ -70,6 +72,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-024',
     title: '这个小学学习资料太全了（1-6年级全科大合集）',
+    folderId: 'primary',
     grade: '小学',
     gradeDetail: '1-6年级全学科',
     subject: '全科',
@@ -102,14 +105,15 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-025',
     title: '剑桥顶级教材 Unlock 0-5级听说读写全套（PDF+音视频）',
-    grade: '全学段',
+    folderId: 'cet',
+    grade: '大学/考级',
     gradeDetail: '零基础至高级 (0-5级全套覆盖)',
     subject: '英语',
     series: '综合资源',
     version: '剑桥原版配套完整版',
     edition: '剑桥大学出版社官方Unlock原版',
     format: 'PDF电子书',
-    quarkUrl: 'https://pan.quark.cn/s/483c6dbfecc8',
+    quarkUrl: 'https://pan.quark.cn/s/84bda5e24a5c',
     description: '剑桥顶级英语教材 Unlock 0-5级听说读写全套精选！系统学英语的必备宝藏教材，覆盖0级到5级不同英语水平，涵盖听、说、读、写全方位，配有高清PDF电子书、原版视频和音频资料，比碎片化学习更系统省心。（本资源由wangpan8.com提供）',
     highlights: [
       '体系完整科学：从0级到5级层层递进，适合不同基础，循序渐进不走弯路',
@@ -132,8 +136,175 @@ export const RESOURCES_DATA: Resource[] = [
     tags: ['剑桥Unlock', 'Unlock听说读写', '0-5级全套', '英语原版教材', '剑桥英语', 'PDF音视频', 'wangpan8.com', '夸克网盘']
   },
   {
+    id: 'res-026',
+    title: '商务英语口语王（职场高频沟通/外企实战/音视频全套）',
+    folderId: 'cet',
+    grade: '大学/考级',
+    gradeDetail: '职场实战/外企沟通/大学英语',
+    subject: '英语',
+    series: '综合资源',
+    version: '职场口语通关版',
+    edition: '商务英语经典教程',
+    format: 'PDF电子书',
+    quarkUrl: 'https://pan.quark.cn/s/ff46f9ac246b',
+    description: '职场人与外企求职者必备的《商务英语口语王》全套资料！覆盖日常商务会话、商务谈判、外贸邮件、电话会议、跨文化交际等高频职场场景，配有实用句型精讲、情景对话与MP3听力音频。（本资源由wangpan8.com提供）',
+    highlights: [
+      '涵盖数百个真实职场场景：会议、商务接待、面试、薪酬谈判、外贸交流',
+      '地道高频商务表达：告别中式英语，掌握外企 native speaker 地道句型与用词',
+      '音视频全方位训练：配套高保真原声MP3音频，支持随时随地磨耳朵与跟读实训',
+      '职场人必备工具书：附赠商务邮件模板、职场高频词汇手册与口语速查表'
+    ],
+    contents: [
+      '【商务口语教材PDF】高清电子版，图文并茂，场景分类详尽清晰',
+      '【原声MP3音频】纯正美式/英式商务发音，情景对话跟读练习',
+      '【职场模板合集】商务英文邮件撰写指南、外企求职简历与英文面试技巧',
+      '【高频句型库】1000+高频商务实战短句与地道谚语速记'
+    ],
+    recommendedFor: '适用于外企职员、外贸从业人员、大学生求职面试及欲提升职场英语竞争力的人群。',
+    rating: 4.97,
+    downloadCount: 38600,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['商务英语口语王', '商务英语', '职场英语', '外企口语', '口语实战', '夸克网盘', 'wangpan8.com']
+  },
+  {
+    id: 'res-027',
+    title: '雅思资源合集（剑桥雅思真题4-19/听说读写提分/名师课件）',
+    folderId: 'cet',
+    grade: '大学/考级',
+    gradeDetail: '雅思IELTS备考全阶段',
+    subject: '英语',
+    series: '综合资源',
+    version: '2026考鸭全套通关版',
+    edition: '剑桥官方+名师精选',
+    format: '网盘合集',
+    quarkUrl: 'https://pan.quark.cn/s/3fbb818f2714',
+    description: '雅思IELTS超全备考资源大宝库！汇集剑桥雅思真题4-19全套PDF及听力音频、听说读写四科名师精品提分课件、当季口语高频题库与高分范文素材库。（本资源由wangpan8.com提供）',
+    highlights: [
+      '真题资源完备：涵盖剑桥雅思全套真题精析、听力精听音频与精解答案',
+      '四科全面突破：听力技巧精讲、阅读长难句剖析、写作大小作文高分模板与口语题库',
+      '名师提分讲义：新东方/环球雅思名师核心技巧课件、提分笔记与刷题计划',
+      '词汇语法打底：雅思核心8000词乱序版、同义替换词汇宝典'
+    ],
+    contents: [
+      '【剑桥雅思全套】剑雅4-19真题PDF、官方高清听力MP3及真题全解',
+      '【口语当季题库】Part 1/2/3当季核心话题汇总、7分高分范例录音',
+      '【写作高分模板】小作文图表描述模板、大作文高分论点论据素材库',
+      '【核心词汇讲义】雅思高频核心词汇速记手册、长难句语法结构解析'
+    ],
+    recommendedFor: '适用于出国留学备考、考研英语提升、雅思自学考鸭及英语教师备课教学。',
+    rating: 4.99,
+    downloadCount: 68900,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['雅思资源合集', '剑桥雅思', '雅思备考', 'IELTS', '雅思口语写作', '出国英语', '夸克网盘']
+  },
+  {
+    id: 'res-028',
+    title: '长沙市一中、雅礼、长郡、师大期中考试试卷（湖南四大名校联考真题）',
+    folderId: 'senior',
+    grade: '高中',
+    gradeDetail: '高一/高二/高三 (湖南四大名校)',
+    subject: '全科',
+    series: '模拟/真题卷',
+    version: '四大名校教研组精选题',
+    edition: '长沙市一中·雅礼·长郡·师大附中',
+    format: 'Word/试卷',
+    quarkUrl: 'https://pan.quark.cn/s/c75da6eca976',
+    description: '全国顶级高中湖南“四大名校”（长沙市一中、雅礼中学、长郡中学、湖南师大附中）最新期中考试试卷全套及权威答案解析！命题极具前瞻性与区分度，高考提分必刷。（本资源由wangpan8.com提供）',
+    highlights: [
+      '全国顶尖名校命题：长郡、雅礼、一中、师大附中联合教研，含金量极高',
+      '九大学科全覆盖：语文、数学、英语、物理、化学、生物、政治、历史、地理',
+      '配套官方详尽解析：附带完整评分细则、解题思路导图与易错点深度剖析',
+      '实战模拟提分利器：适合高考一轮二轮冲刺、期中期末前高强度全真练兵'
+    ],
+    contents: [
+      '【长郡中学】高一/高二/高三年级期中全科试卷 + 官方标准参考答案',
+      '【雅礼中学】高一/高二/高三年级期中全科试卷 + 评分细则与答题卡',
+      '【长沙市一中】全学科期中联考调研卷 + 重点难点压轴题解析',
+      '【湖南师大附中】期中调研考试试卷 + 名师视频讲评讲义'
+    ],
+    recommendedFor: '适用于全国高中生尤其是备战高考的学生刷题培优、重点中学教师组卷命题参考。',
+    rating: 4.99,
+    downloadCount: 71200,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['长沙四大名校', '长郡中学', '雅礼中学', '长沙市一中', '师大附中', '期中考试卷', '高中名校卷', '夸克网盘']
+  },
+  {
+    id: 'res-029',
+    title: '长沙小升初试卷合集（重点中学招生真题与全真分班模拟卷）',
+    folderId: 'primary',
+    grade: '小学',
+    gradeDetail: '6年级/小升初冲刺',
+    subject: '全科',
+    series: '模拟/真题卷',
+    version: '名校名卷小升初冲刺版',
+    edition: '长沙名校初中招生组',
+    format: 'Word/试卷',
+    quarkUrl: 'https://pan.quark.cn/s/d292dce08968',
+    description: '长沙地区名校小升初招生测试、分班选拔考试真题与冲刺模拟卷大合集！包含长郡双语、青竹湖湘一、南雅中学、麓山国际等名校小升初语数英真题，附完整参考答案。（本资源由wangpan8.com提供）',
+    highlights: [
+      '名校真题密卷：收录长沙各顶尖初中历年小升初招生真题与分班测评卷',
+      '语数英三大主科：数学重点考查奥数与思维拔高题，语文考查名篇文言与写作，英语考查语法与阅读',
+      '题型全面覆盖：包含基础题、能力题、拓展压轴题，层层递进',
+      '配完整解析：名师编写详细解答步骤，助孩子迅速查漏补缺，轻松应对小升初'
+    ],
+    contents: [
+      '【名校招生真题卷】长郡双语、青竹湖湘一、南雅、广益历年真题及解析',
+      '【新初一分班考试卷】语数英三科分班摸底全真试卷与命题趋势分析',
+      '【重难点专题突破】小升初数学常考应用题/几何压轴题、语文古诗文专项',
+      '【全真模拟冲刺卷】小升初名校冲刺全真模拟卷（带评分标准与答题规范）'
+    ],
+    recommendedFor: '适用于小学五、六年级学生备战小升初名校招生、初一分班摸底考，以及家长与辅导机构培优使用。',
+    rating: 4.98,
+    downloadCount: 49500,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['长沙小升初试卷', '小升初真题', '长郡双语', '青竹湖湘一', '分班考试卷', '小学冲刺', '夸克网盘']
+  },
+  {
+    id: 'res-030',
+    title: '2、考研资料（考研政治/英语/数学/专业课名师资料合集）',
+    folderId: 'cert',
+    grade: '大学/考级',
+    gradeDetail: '全国硕士研究生统一招生考试(初试+复试)',
+    subject: '考级/综合',
+    series: '综合资源',
+    version: '2026-2027考研上岸全套版',
+    edition: '考研名师团队精编',
+    format: '网盘合集',
+    quarkUrl: 'https://pan.quark.cn/s/9bca880ff922',
+    shareCode: '/~71963aScJT~:/',
+    description: '全国硕士研究生统一招生考试全套精选资料宝库！涵盖考研公共课（考研政治、考研英语一/二、考研数学一/二/三）与核心专业课备考资料，包含名师全程讲义、历年真题分类精解、高频考点必背手册与冲刺押题密卷。（本资源由wangpan8.com提供）',
+    highlights: [
+      '公共课全覆盖：政治核心考点梳理、英语真题长难句与作文模板、数学题型全归纳',
+      '名师精品讲义：整理汇总各大机构顶级名师全程班讲义、核心背诵手册与冲刺笔记',
+      '真题分类精解：近10-20年考研真题汇编、逐题详析与命题趋势深度剖析',
+      '阶段科学规划：基础筑基、强化刷题、真题实战、冲刺押题全流程覆盖'
+    ],
+    contents: [
+      '【考研政治】马原/毛中特/史纲/思修法基核心考点、选择题必刷题与主观题押题模板',
+      '【考研英语】英语一/二历年真题全解、核心5500词高频速记、长难句拆解与大小作文范文库',
+      '【考研数学】高等数学/线性代数/概率论与数理统计题型归纳、经典1000题与历年真题详解',
+      '【专业课与复试】专业课通用复习策略、复试英文口语问答模板与导师联系指南'
+    ],
+    recommendedFor: '适用于备战全国硕士研究生入学考试（学术型/专业型硕士）的全国考生及在校大学生自学备考。',
+    rating: 4.99,
+    downloadCount: 56300,
+    updatedAt: '2026-08',
+    isHot: true,
+    isFeatured: true,
+    tags: ['考研资料', '2、考研资料', '考研公共课', '考研政治', '考研英语', '考研数学', '考研真题', 'wangpan8.com', '夸克网盘']
+  },
+  {
     id: 'res-020',
     title: '2026秋小学语数英热门学习资料大合集',
+    folderId: 'primary',
     grade: '小学',
     gradeDetail: '1-6年级',
     subject: '全科',
@@ -167,6 +338,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-021',
     title: '小学英语语法专题学习资料包',
+    folderId: 'primary',
     grade: '小学',
     gradeDetail: '3-6年级/小升初',
     subject: '英语',
@@ -200,6 +372,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-001',
     title: '001 小学必刷题（全科提分名优刷题库）',
+    folderId: 'primary',
     grade: '小学',
     gradeDetail: '1-6年级',
     subject: '全科',
@@ -232,6 +405,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-002',
     title: '002 初中必刷题（全科考点特训合集）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7-9年级',
     subject: '全科',
@@ -265,6 +439,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-003',
     title: '003 高中必刷题（全科考点与高考真题分层特训）',
+    folderId: 'senior',
     grade: '高中',
     gradeDetail: '高一至高三',
     subject: '全科',
@@ -298,6 +473,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-004',
     title: '2026版初中《名校课堂》（7-9年级全科同步教学）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7-9年级',
     subject: '全科',
@@ -330,6 +506,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-005',
     title: '初中全科《一模二模-中考模拟试卷》2025（多地版本）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '初三/九年级',
     subject: '全科',
@@ -362,6 +539,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-006',
     title: '初中学霸资料【必看全科干货宝库】',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7-9年级',
     subject: '全科',
@@ -394,6 +572,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-007',
     title: '小学经典国学课本十部：古文观止.pdf',
+    folderId: 'primary',
     grade: '小学',
     gradeDetail: '3-6年级/小升初',
     subject: '国学/拓展',
@@ -426,6 +605,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-008',
     title: '2026版初中【名校题库】8年级上册（数学）（北师大版）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '8年级上册',
     subject: '数学',
@@ -460,6 +640,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-009',
     title: '2026版初中【名校题库】8年级上册（英语）（成都人教版）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '8年级上册',
     subject: '英语',
@@ -492,6 +673,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-010',
     title: '2026版初中《名校学典•计算高手》7、8年级上册（数学人教版）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7、8年级上册',
     subject: '数学',
@@ -524,6 +706,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-011',
     title: '2026版初中《名校学典》计算高手8年级上册（数学人教版）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '8年级上册',
     subject: '数学',
@@ -556,6 +739,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-012',
     title: '2026版初中【名校真题卷】7-9年级上册（数学）（北师大版）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7-9年级上册',
     subject: '数学',
@@ -588,6 +772,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-013',
     title: '小学语文 课外.文坛掠影（70课全套拓展）',
+    folderId: 'primary',
     grade: '小学',
     gradeDetail: '3-6年级',
     subject: '语文',
@@ -620,6 +805,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-014',
     title: '53系列-初中试卷（2023版+2025版双版本合集）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7-9年级',
     subject: '全科',
@@ -652,6 +838,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-015',
     title: '53系列-初中同步（2023版+2024版+2025版跨年全套）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7-9年级',
     subject: '全科',
@@ -684,6 +871,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-016',
     title: '2025版初中《万唯中考冲刺营》7科全套（全11期完整版）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '初三/中考冲刺',
     subject: '全科',
@@ -716,6 +904,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-017',
     title: '2026《初中5星学霸中考重难点》语数英核心突破',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '初三/中考复习',
     subject: '全科',
@@ -748,6 +937,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-018',
     title: '《会考复习资料大全套》2025年初中生物学业水平考试通关宝典',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '8年级/初中会考',
     subject: '生物',
@@ -780,6 +970,7 @@ export const RESOURCES_DATA: Resource[] = [
   {
     id: 'res-019',
     title: '初中资源总库（初中三年全科资源大礼包）',
+    folderId: 'junior',
     grade: '初中',
     gradeDetail: '7-9年级',
     subject: '全科',
@@ -811,21 +1002,24 @@ export const RESOURCES_DATA: Resource[] = [
   }
 ];
 
+
 export const HOT_SEARCH_TAGS = [
   '全站资源汇总',
+  '2、考研资料',
+  '考研资料',
+  '长沙四大名校',
+  '雅思资源合集',
+  '商务英语口语王',
   '剑桥Unlock',
+  '长沙小升初试卷',
   '这个小学学习资料太全了',
   '少儿编程',
   '2026秋小学语数英',
-  '小学英语语法',
-  '2026名校课堂',
+  '高中必刷题',
   '万唯中考',
   '53系列',
   '初中必刷题',
   '小学必刷题',
-  '古文观止',
   '8年级数学',
-  '初中学霸资料',
-  '生物会考',
-  '计算高手'
+  '生物会考'
 ];

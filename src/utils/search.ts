@@ -1,5 +1,5 @@
 import Fuse, { IFuseOptions } from 'fuse.js';
-import { Resource, GradeFilter, SubjectFilter, SeriesFilter, SortOption } from '../types';
+import { Resource, GradeFilter, SubjectFilter, SeriesFilter, SortOption, FolderId } from '../types';
 
 const fuseOptions: IFuseOptions<Resource> = {
   keys: [
@@ -24,28 +24,38 @@ export function filterAndSearchResources(
   grade: GradeFilter,
   subject: SubjectFilter,
   series: SeriesFilter,
-  sort: SortOption
+  sort: SortOption,
+  folderId: FolderId | null = null
 ): Resource[] {
   let list = allResources;
 
-  // 1. Fuse.js Full-Text Fuzzy Search
+  // 1. Folder Directory Filter
+  if (folderId) {
+    list = list.filter((res) => {
+      // Direct folder match or universal overview resource
+      return res.folderId === folderId;
+    });
+  }
+
+  // 2. Fuse.js Full-Text Fuzzy Search
   if (query.trim()) {
-    const fuse = new Fuse(allResources, fuseOptions);
+    const fuse = new Fuse(list, fuseOptions);
     const searchResults = fuse.search(query.trim());
     list = searchResults.map((result) => result.item);
   }
 
-  // 2. Grade Filter
+  // 3. Grade Filter
   if (grade !== '全部') {
     list = list.filter((res) => {
       if (grade === '小学') return res.grade === '小学' || res.grade === '全学段';
       if (grade === '初中') return res.grade === '初中' || res.grade === '全学段';
       if (grade === '高中') return res.grade === '高中' || res.grade === '全学段';
+      if (grade === '大学/考级') return res.grade === '大学/考级' || res.grade === '全学段';
       return true;
     });
   }
 
-  // 3. Subject Filter
+  // 4. Subject Filter
   if (subject !== '全部') {
     list = list.filter((res) => {
       if (subject === '语文') return res.subject === '语文' || res.subject === '全科' || res.subject === '国学/拓展';
@@ -53,12 +63,13 @@ export function filterAndSearchResources(
       if (subject === '英语') return res.subject === '英语' || res.subject === '全科';
       if (subject === '生物') return res.subject === '生物' || res.subject === '全科';
       if (subject === '国学/拓展') return res.subject === '国学/拓展' || res.tags.includes('国学');
+      if (subject === '考级/综合') return res.subject === '考级/综合' || res.tags.includes('考级');
       if (subject === '全科') return res.subject === '全科';
       return true;
     });
   }
 
-  // 4. Series Filter
+  // 5. Series Filter
   if (series !== '全部') {
     list = list.filter((res) => {
       if (series === '必刷题系列') return res.series === '必刷题系列';
@@ -72,7 +83,7 @@ export function filterAndSearchResources(
     });
   }
 
-  // 5. Sort Option
+  // 6. Sort Option
   const sorted = [...list];
   if (sort === 'hot') {
     sorted.sort((a, b) => b.downloadCount - a.downloadCount);
@@ -91,3 +102,4 @@ export function filterAndSearchResources(
 
   return sorted;
 }
+
