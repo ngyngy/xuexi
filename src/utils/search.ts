@@ -32,8 +32,8 @@ export function filterAndSearchResources(
   // 1. Folder Directory Filter
   if (folderId) {
     list = list.filter((res) => {
-      // Direct folder match or universal overview resource
-      return res.folderId === folderId;
+      // Direct folder match or multiple folders assignment
+      return res.folderId === folderId || (res.folderIds && res.folderIds.includes(folderId));
     });
   }
 

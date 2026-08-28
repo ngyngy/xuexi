@@ -65,7 +65,7 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
 
   // Helper to get resources inside folder
   const getFolderResources = (folderId: FolderId) => {
-    let list = resources.filter((r) => r.folderId === folderId);
+    let list = resources.filter((r) => r.folderId === folderId || (r.folderIds && r.folderIds.includes(folderId)));
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
       list = list.filter(
@@ -134,7 +134,7 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
         {folders.map((folder) => {
           const folderResources = getFolderResources(folder.id);
           const isExpanded = !!expandedFolderIds[folder.id];
-          const totalInFolder = resources.filter((r) => r.folderId === folder.id).length;
+          const totalInFolder = resources.filter((r) => r.folderId === folder.id || (r.folderIds && r.folderIds.includes(folder.id))).length;
 
           return (
             <div key={folder.id} className="relative">

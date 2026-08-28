@@ -14,6 +14,7 @@ export interface Resource {
   id: string;
   title: string;
   folderId?: FolderId | 'all'; // Assigned folder directory
+  folderIds?: FolderId[]; // Optional multiple folders
   grade: '小学' | '初中' | '高中' | '全学段' | '大学/考级';
   gradeDetail: string; // e.g. "1-6年级", "8年级上册", "7-9年级", "0-5级全套"
   subject: '语文' | '数学' | '英语' | '生物' | '全科' | '国学/拓展' | '考级/综合';
