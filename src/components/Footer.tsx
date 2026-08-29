@@ -97,7 +97,19 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-6 text-slate-400 flex-wrap">
+          <div className="flex items-center gap-4 text-slate-400 flex-wrap">
+            <a
+              href="https://weibo.com/u/6184008812"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded bg-rose-500/10 text-rose-300 border border-rose-500/20 hover:bg-rose-500/20 transition-colors"
+              title="关注南宫远微博：https://weibo.com/u/6184008812"
+            >
+              <svg className="w-3.5 h-3.5 fill-current text-rose-400" viewBox="0 0 24 24">
+                <path d="M10.093 20.916c-4.52 0-8.193-2.668-8.193-5.952 0-3.32 3.73-5.999 8.272-5.999 4.544 0 8.217 2.679 8.217 6 0 3.283-3.714 5.951-8.296 5.951zm-.498-3.414c1.84 0 3.33-1.077 3.33-2.404 0-1.328-1.49-2.405-3.33-2.405-1.84 0-3.33 1.077-3.33 2.405 0 1.327 1.49 2.404 3.33 2.404zm7.65-8.237c1.378.435 2.44 1.498 2.875 2.875.14.44-.105.908-.546 1.047-.44.14-.908-.105-1.047-.546-.3-1-.95-1.74-1.95-2.04-.44-.14-.686-.607-.546-1.047.14-.44.607-.686 1.047-.546zm3.32-3.32c2.977.94 5.27 3.234 6.21 6.21.14.44-.105.908-.546 1.047-.44.14-.908-.105-1.047-.546-.778-2.463-2.686-4.37-5.15-5.15-.44-.14-.686-.607-.546-1.047.14-.44.607-.686 1.047-.546z" />
+              </svg>
+              <span>南宫远微博</span>
+            </a>
             <a
               href="https://x.com/nangongyuan"
               target="_blank"
