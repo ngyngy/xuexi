@@ -17,7 +17,7 @@ export interface Resource {
   folderIds?: FolderId[]; // Optional multiple folders
   grade: '小学' | '初中' | '高中' | '全学段' | '大学/考级';
   gradeDetail: string; // e.g. "1-6年级", "8年级上册", "7-9年级", "0-5级全套"
-  subject: '语文' | '数学' | '英语' | '生物' | '全科' | '国学/拓展' | '考级/综合';
+  subject: '语文' | '数学' | '英语' | '物理' | '化学' | '生物' | '历史' | '全科' | '国学/拓展' | '考级/综合';
   series: '必刷题系列' | '53系列' | '万唯中考' | '名校课堂' | '名校题库' | '名校学典' | '学霸笔记' | '模拟试卷' | '模拟/真题卷' | '国学经典' | '国学/课外' | '综合资源';
   version: string; // e.g. "2026版", "2025版", "2023-2025版"
   edition?: string; // e.g. "人教版", "北师大版", "成都人教版"
@@ -40,7 +40,7 @@ export interface Resource {
 }
 
 export type GradeFilter = '全部' | '小学' | '初中' | '高中' | '大学/考级';
-export type SubjectFilter = '全部' | '语文' | '数学' | '英语' | '生物' | '全科' | '国学/拓展' | '考级/综合';
+export type SubjectFilter = '全部' | '语文' | '数学' | '英语' | '物理' | '化学' | '生物' | '历史' | '全科' | '国学/拓展' | '考级/综合';
 export type SeriesFilter = '全部' | '必刷题系列' | '53系列' | '万唯中考' | '名校课堂/题库' | '学霸笔记' | '模拟/真题卷' | '国学/课外';
 export type SortOption = 'default' | 'hot' | 'rating' | 'newest';
 

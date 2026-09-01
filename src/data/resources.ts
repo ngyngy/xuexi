@@ -1,6 +1,7 @@
 import { Resource } from '../types';
+import { SEPTEMBER_RESOURCES } from './septemberResources';
 
-export const RESOURCES_DATA: Resource[] = [
+const BASE_RESOURCES: Resource[] = [
   {
     id: 'res-000',
     title: '全站资源汇总',
@@ -1339,9 +1340,25 @@ export const RESOURCES_DATA: Resource[] = [
   }
 ];
 
+// Keep '全站资源汇总' first, followed by newly added September resources and existing resources
+export const RESOURCES_DATA: Resource[] = [
+  BASE_RESOURCES[0], // '全站资源汇总'
+  ...SEPTEMBER_RESOURCES,
+  ...BASE_RESOURCES.slice(1)
+];
 
 export const HOT_SEARCH_TAGS = [
   '全站资源汇总',
+  '9月学习资源',
+  '马哥数学',
+  '胡浩然数学',
+  '高考导数',
+  '十年高考真题',
+  '唐诗三百首',
+  '小学数学教案课件',
+  '王朝霞S级默写',
+  '初中几何一本通',
+  '奥数教程第八版',
   '2023-2025中考真题',
   '中考八类最值问题',
   '中考几何21节',
@@ -1349,22 +1366,12 @@ export const HOT_SEARCH_TAGS = [
   '学而思小学数学',
   '学而思小学英语',
   '小学语文满分作文',
-  '中考语文',
-  '2、考研资料',
-  '考研资料',
-  '长沙四大名校',
-  '雅思资源合集',
-  '商务英语口语王',
-  '剑桥Unlock',
-  '长沙小升初试卷',
-  '这个小学学习资料太全了',
-  '少儿编程',
-  '2026秋小学语数英',
+  '时光学奥数',
+  '初中必刷题',
   '高中必刷题',
   '万唯中考',
   '53系列',
-  '初中必刷题',
-  '小学必刷题',
-  '8年级数学',
-  '生物会考'
+  '高考英语GVC',
+  '高中化学一本通'
 ];
+

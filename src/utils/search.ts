@@ -61,7 +61,10 @@ export function filterAndSearchResources(
       if (subject === '语文') return res.subject === '语文' || res.subject === '全科' || res.subject === '国学/拓展';
       if (subject === '数学') return res.subject === '数学' || res.subject === '全科';
       if (subject === '英语') return res.subject === '英语' || res.subject === '全科';
+      if (subject === '物理') return res.subject === '物理' || res.subject === '全科';
+      if (subject === '化学') return res.subject === '化学' || res.subject === '全科';
       if (subject === '生物') return res.subject === '生物' || res.subject === '全科';
+      if (subject === '历史') return res.subject === '历史' || res.subject === '全科';
       if (subject === '国学/拓展') return res.subject === '国学/拓展' || res.tags.includes('国学');
       if (subject === '考级/综合') return res.subject === '考级/综合' || res.tags.includes('考级');
       if (subject === '全科') return res.subject === '全科';
