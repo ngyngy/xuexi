@@ -1,7 +1,29 @@
-import React from 'react';
-import { BookOpen, ShieldCheck, Heart, Sparkles, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { BookOpen, ShieldCheck, Heart, Sparkles, ExternalLink, Users, Check } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onShowToast?: (text: string, type?: 'success' | 'info' | 'error') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onShowToast }) => {
+  const [copiedQQ, setCopiedQQ] = useState(false);
+
+  const handleCopyQQ = () => {
+    const qqNumber = '1036591276';
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(qqNumber).then(() => {
+        setCopiedQQ(true);
+        if (onShowToast) {
+          onShowToast(`已复制QQ群号：${qqNumber}，欢迎加群交流！`, 'success');
+        }
+        setTimeout(() => setCopiedQQ(false), 2500);
+      }).catch(() => {
+        if (onShowToast) onShowToast(`官方QQ群：${qqNumber}`, 'info');
+      });
+    } else if (onShowToast) {
+      onShowToast(`官方QQ群：${qqNumber}`, 'info');
+    }
+  };
   const friendLinks = [
     {
       url: 'https://www.wangpan8.com',
@@ -119,8 +141,32 @@ export const Footer: React.FC = () => {
               <svg className="w-3.5 h-3.5 fill-current text-sky-400" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
-              <span>南宫远推特 @nangongyuan</span>
+              <span>推特 @nangongyuan</span>
             </a>
+            <a
+              href="https://x.com/xmxhll"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded bg-sky-500/10 text-sky-300 border border-sky-500/20 hover:bg-sky-500/20 transition-colors"
+              title="关注推特 @xmxhll"
+            >
+              <svg className="w-3.5 h-3.5 fill-current text-sky-400" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              <span>推特 @xmxhll</span>
+            </a>
+            <button
+              onClick={handleCopyQQ}
+              className="flex items-center gap-1.5 px-3 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors cursor-pointer"
+              title="点击一键复制官方学习交流QQ群：1036591276"
+            >
+              {copiedQQ ? (
+                <Check className="w-3.5 h-3.5 text-emerald-400" />
+              ) : (
+                <Users className="w-3.5 h-3.5 text-emerald-400" />
+              )}
+              <span>{copiedQQ ? '已复制群号' : 'QQ群: 1036591276'}</span>
+            </button>
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>夸克网盘官方云端备份</span>
@@ -201,7 +247,13 @@ export const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-2">
-          <div>© {new Date().getFullYear()} 学习资料网 (xuexi.ngy123.com) · 站长：南宫远 (@nangongyuan)</div>
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span>© {new Date().getFullYear()} 学习资料网 (xuexi.ngy123.com)</span>
+            <span>·</span>
+            <span>推特：@nangongyuan / @xmxhll</span>
+            <span>·</span>
+            <span className="text-emerald-400/90 font-medium">QQ群：1036591276</span>
+          </div>
           <div className="flex items-center gap-1 text-slate-500">
             <span>用</span>
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Send, MessageSquarePlus, Copy, Mail, ExternalLink, CheckCircle2, History, Sparkles, FileText } from 'lucide-react';
+import { X, Send, MessageSquarePlus, Copy, Mail, ExternalLink, CheckCircle2, History, Sparkles, FileText, Users, Check } from 'lucide-react';
 
 interface RequestResourceModalProps {
   isOpen: boolean;
@@ -283,6 +283,42 @@ export const RequestResourceModal: React.FC<RequestResourceModalProps> = ({
                 >
                   {copiedTemplate ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-amber-400" />}
                   <span>{copiedTemplate ? '已复制邮件全文' : '复制模板与邮箱'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* QQ Group & Social Community Section */}
+            <div className="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0 shadow-sm">
+                  <Users className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-slate-800 flex items-center gap-1.5 flex-wrap">
+                    <span>官方学习交流QQ群：</span>
+                    <span className="font-mono text-emerald-700 bg-white px-1.5 py-0.5 rounded border border-emerald-200">1036591276</span>
+                  </div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">
+                    群内每日更新名校试卷、必刷题，也可推特联系 @nangongyuan 或 @xmxhll
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 self-end sm:self-center shrink-0">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const qqNumber = '1036591276';
+                    if (navigator.clipboard) {
+                      navigator.clipboard.writeText(qqNumber).then(() => {
+                        onShowToast(`已复制QQ群号：${qqNumber}`, 'success');
+                      });
+                    } else {
+                      onShowToast(`官方QQ群：${qqNumber}`, 'info');
+                    }
+                  }}
+                  className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm active:scale-95 transition-all cursor-pointer"
+                >
+                  一键复制群号
                 </button>
               </div>
             </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Search, BookOpen, Star, Download, HelpCircle, MessageSquarePlus, Sparkles, Mail } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, BookOpen, Star, Download, HelpCircle, MessageSquarePlus, Sparkles, Mail, Users, Check } from 'lucide-react';
 import { HOT_SEARCH_TAGS } from '../data/resources';
 
 interface HeaderProps {
@@ -10,6 +10,7 @@ interface HeaderProps {
   onOpenGuide: () => void;
   onOpenRequestModal: () => void;
   totalCount: number;
+  onShowToast?: (text: string, type?: 'success' | 'info' | 'error') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -20,7 +21,26 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenGuide,
   onOpenRequestModal,
   totalCount,
+  onShowToast,
 }) => {
+  const [copiedQQ, setCopiedQQ] = useState(false);
+
+  const handleCopyQQ = () => {
+    const qqNumber = '1036591276';
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(qqNumber).then(() => {
+        setCopiedQQ(true);
+        if (onShowToast) {
+          onShowToast(`已复制QQ群号：${qqNumber}，欢迎加群交流！`, 'success');
+        }
+        setTimeout(() => setCopiedQQ(false), 2500);
+      }).catch(() => {
+        if (onShowToast) onShowToast(`官方QQ群：${qqNumber}`, 'info');
+      });
+    } else if (onShowToast) {
+      onShowToast(`官方QQ群：${qqNumber}`, 'info');
+    }
+  };
   return (
     <header className="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white border-b border-slate-700/60 sticky top-0 z-30 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -77,6 +97,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span>南宫远微博</span>
             </a>
 
+            {/* Twitter 1 */}
             <a
               href="https://x.com/nangongyuan"
               target="_blank"
@@ -87,8 +108,36 @@ export const Header: React.FC<HeaderProps> = ({
               <svg className="w-3.5 h-3.5 fill-current text-sky-400" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
-              <span>南宫远推特</span>
+              <span>推特 @nangongyuan</span>
             </a>
+
+            {/* Twitter 2 */}
+            <a
+              href="https://x.com/xmxhll"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-400/30 transition-all shadow-sm"
+              title="关注推特 @xmxhll (https://x.com/xmxhll)"
+            >
+              <svg className="w-3.5 h-3.5 fill-current text-sky-400" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              <span>推特 @xmxhll</span>
+            </a>
+
+            {/* QQ Group Button */}
+            <button
+              onClick={handleCopyQQ}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 transition-all shadow-sm active:scale-95 group cursor-pointer"
+              title="点击一键复制官方学习交流QQ群号：1036591276"
+            >
+              {copiedQQ ? (
+                <Check className="w-3.5 h-3.5 text-emerald-400" />
+              ) : (
+                <Users className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+              )}
+              <span>{copiedQQ ? '已复制群号' : 'QQ群: 1036591276'}</span>
+            </button>
 
             <button
               onClick={onOpenGuide}

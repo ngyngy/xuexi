@@ -16,7 +16,7 @@ import { FavoritesDrawer } from './components/FavoritesDrawer';
 import { Toast, ToastMessage } from './components/Toast';
 import { Footer } from './components/Footer';
 
-import { BookOpen, SearchX, Sparkles, Flame, CheckCircle2, Mail, FolderOpen, ArrowLeft } from 'lucide-react';
+import { BookOpen, SearchX, Sparkles, Flame, CheckCircle2, Mail, FolderOpen, ArrowLeft, Users } from 'lucide-react';
 
 export default function App() {
   // Folder Directory State
@@ -170,6 +170,7 @@ export default function App() {
         onOpenGuide={() => setIsGuideOpen(true)}
         onOpenRequestModal={() => setIsRequestModalOpen(true)}
         totalCount={RESOURCES_DATA.length}
+        onShowToast={addToast}
       />
 
       {/* Main Container */}
@@ -212,25 +213,48 @@ export default function App() {
               <Mail className="w-5 h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-sm text-white">没找到想要的资料？欢迎发邮件求资源</span>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-extrabold text-sm text-white">没找到想要的资料？欢迎发邮件求资源或加QQ群</span>
+                <span className="text-[10px] bg-emerald-400/20 text-emerald-300 border border-emerald-400/30 px-2 py-0.5 rounded-full font-bold">
+                  QQ群 1036591276
+                </span>
                 <span className="text-[10px] bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded-full font-bold">
-                  官方邮箱
+                  官方邮箱 hi@ngy123.com
                 </span>
               </div>
               <p className="text-xs text-slate-300 mt-0.5">
-                发送邮件至 <code className="font-mono text-amber-300 font-bold bg-slate-800/80 px-1.5 py-0.5 rounded border border-slate-700">hi@ngy123.com</code>，站长收到后会优先全网搜索并上传夸克网盘！
+                欢迎加入学习交流QQ群：<code className="font-mono text-emerald-300 font-bold bg-slate-800/80 px-1.5 py-0.5 rounded border border-slate-700">1036591276</code>，或发送邮件至 <code className="font-mono text-amber-300 font-bold bg-slate-800/80 px-1.5 py-0.5 rounded border border-slate-700">hi@ngy123.com</code>，站长收到后优先全网搜寻并更新！
               </p>
             </div>
           </div>
 
-          <button
-            onClick={() => setIsRequestModalOpen(true)}
-            className="w-full md:w-auto px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs transition-all shadow active:scale-95 shrink-0 flex items-center justify-center gap-1.5"
-          >
-            <Mail className="w-4 h-4 text-slate-900" />
-            <span>立即发邮件求资源</span>
-          </button>
+          <div className="flex items-center gap-2 flex-wrap w-full md:w-auto shrink-0 justify-end">
+            <button
+              onClick={() => {
+                const qqNumber = '1036591276';
+                if (navigator.clipboard) {
+                  navigator.clipboard.writeText(qqNumber).then(() => {
+                    addToast(`已复制QQ群号：${qqNumber}，欢迎加群交流！`, 'success');
+                  });
+                } else {
+                  addToast(`官方QQ交流群：${qqNumber}`, 'info');
+                }
+              }}
+              className="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-all shadow active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
+              title="点击复制官方交流QQ群号：1036591276"
+            >
+              <Users className="w-3.5 h-3.5 text-slate-950" />
+              <span>加QQ群: 1036591276</span>
+            </button>
+
+            <button
+              onClick={() => setIsRequestModalOpen(true)}
+              className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs transition-all shadow active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <Mail className="w-4 h-4 text-slate-900" />
+              <span>发邮件求资源</span>
+            </button>
+          </div>
         </div>
 
         {/* Resource Grid / List or Empty Folder State */}
@@ -318,7 +342,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onShowToast={addToast} />
 
       {/* Modals & Drawers */}
       <ResourceDetailModal
