@@ -29,10 +29,24 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   onReset,
   activeSearchQuery,
 }) => {
-  const gradeOptions: GradeFilter[] = ['全部', '小学', '初中', '高中'];
-  const subjectOptions: SubjectFilter[] = ['全部', '语文', '数学', '英语', '物理', '化学', '生物', '历史', '全科', '国学/拓展'];
+  const gradeOptions: GradeFilter[] = ['全部', '小学', '初中', '高中', '大学/考研', '职业/技能', '通用/综合'];
+  const subjectOptions: SubjectFilter[] = [
+    '全部',
+    '语文',
+    '数学',
+    '英语',
+    '编程/AI',
+    '技能/实用',
+    '思维/认知',
+    '名著/通识',
+    '物理',
+    '化学',
+    '历史',
+    '全科'
+  ];
   const seriesOptions: SeriesFilter[] = [
     '全部',
+    '综合资源',
     '必刷题系列',
     '53系列',
     '万唯中考',

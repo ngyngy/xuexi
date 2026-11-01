@@ -63,9 +63,18 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
     setTimeout(() => setCopiedId(null), 2000);
   };
 
+  // Helper to check if resource belongs to folder
+  const matchesFolder = (r: Resource, targetFolderId: FolderId) => {
+    if (r.folderId === targetFolderId || (r.folderIds && r.folderIds.includes(targetFolderId))) return true;
+    if (targetFolderId === 'k12' && (r.folderId === 'primary' || r.folderId === 'junior' || r.folderId === 'senior')) return true;
+    if (targetFolderId === 'english' && r.folderId === 'cet') return true;
+    if (targetFolderId === 'university' && r.folderId === 'cert') return true;
+    return false;
+  };
+
   // Helper to get resources inside folder
   const getFolderResources = (folderId: FolderId) => {
-    let list = resources.filter((r) => r.folderId === folderId || (r.folderIds && r.folderIds.includes(folderId)));
+    let list = resources.filter((r) => matchesFolder(r, folderId));
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
       list = list.filter(
@@ -134,7 +143,7 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
         {folders.map((folder) => {
           const folderResources = getFolderResources(folder.id);
           const isExpanded = !!expandedFolderIds[folder.id];
-          const totalInFolder = resources.filter((r) => r.folderId === folder.id || (r.folderIds && r.folderIds.includes(folder.id))).length;
+          const totalInFolder = resources.filter((r) => matchesFolder(r, folder.id)).length;
 
           return (
             <div key={folder.id} className="relative">
@@ -232,6 +241,11 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
                                     百度网盘
                                   </span>
                                 )}
+                                {res.panType === 'wangpan8' && (
+                                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 border border-amber-300">
+                                    防封直达
+                                  </span>
+                                )}
                                 {res.extractCode && (
                                   <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
                                     提取码: {res.extractCode}
@@ -270,16 +284,17 @@ export const FolderDirectory: React.FC<FolderDirectoryProps> = ({
                               )}
                             </button>
 
-                            {/* Direct Save to Quark Pan Button */}
+                            {/* Direct Save or Visit Button */}
                             <a
                               href={res.quarkUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               className="px-3 py-1 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-extrabold transition-all shadow-xs hover:shadow flex items-center gap-1 active:scale-95 shrink-0"
+                              title={res.panType === 'wangpan8' ? '点击直达防封资源源文件' : '点击转存到网盘'}
                             >
                               <DownloadCloud className="w-3.5 h-3.5 text-slate-950" />
-                              <span>保存到网盘</span>
+                              <span>{res.panType === 'wangpan8' ? '直达获取' : '保存到网盘'}</span>
                               <ExternalLink className="w-3 h-3 text-slate-800" />
                             </a>
 

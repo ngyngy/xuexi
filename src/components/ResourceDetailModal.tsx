@@ -49,7 +49,8 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
   };
 
   const isBaidu = resource.panType === 'baidu' || resource.quarkUrl.includes('pan.baidu.com');
-  const panName = resource.panName || (isBaidu ? '百度网盘' : '夸克网盘');
+  const isWangpan8 = resource.panType === 'wangpan8' || resource.quarkUrl.includes('wangpan8.com');
+  const panName = resource.panName || (isBaidu ? '百度网盘' : isWangpan8 ? '防封直达' : '夸克网盘');
 
   return (
     <AnimatePresence>

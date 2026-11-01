@@ -32,7 +32,8 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
   };
 
   const isBaidu = resource.panType === 'baidu' || resource.quarkUrl.includes('pan.baidu.com');
-  const panName = resource.panName || (isBaidu ? '百度网盘' : '夸克网盘');
+  const isWangpan8 = resource.panType === 'wangpan8' || resource.quarkUrl.includes('wangpan8.com');
+  const panName = resource.panName || (isBaidu ? '百度网盘' : isWangpan8 ? '防封直达' : '夸克网盘');
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200 hover:border-blue-400 hover:shadow-xl transition-all duration-250 flex flex-col justify-between group overflow-hidden relative">

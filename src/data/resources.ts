@@ -1,5 +1,6 @@
 import { Resource } from '../types';
 import { SEPTEMBER_RESOURCES } from './septemberResources';
+import { WEEKLY_610_RESOURCES } from './weekly610Resources';
 
 const BASE_RESOURCES: Resource[] = [
   {
@@ -1340,38 +1341,40 @@ const BASE_RESOURCES: Resource[] = [
   }
 ];
 
-// Keep '全站资源汇总' first, followed by newly added September resources and existing resources
+// Keep '全站资源汇总' first, followed by weekly 610 curated items, September resources, and base resources
 export const RESOURCES_DATA: Resource[] = [
   BASE_RESOURCES[0], // '全站资源汇总'
+  ...WEEKLY_610_RESOURCES,
   ...SEPTEMBER_RESOURCES,
   ...BASE_RESOURCES.slice(1)
 ];
 
 export const HOT_SEARCH_TAGS = [
   '全站资源汇总',
+  '学而思精品课',
+  'AI视频制作',
+  '提示词工程',
+  '影视飓风剪辑',
+  'Python全栈',
+  '100个思维模型',
+  '曾仕强全集',
+  '清华状元笔记',
+  '小吃制作配方',
+  '电工技术自学',
+  '雅思全能班',
+  'TED演讲中英',
   '9月学习资源',
+  '麻省理工公开课',
+  '耶鲁公开课',
+  '考试脑科学',
   '马哥数学',
-  '胡浩然数学',
-  '高考导数',
-  '十年高考真题',
-  '唐诗三百首',
-  '小学数学教案课件',
-  '王朝霞S级默写',
   '初中几何一本通',
-  '奥数教程第八版',
+  '高中知识清单',
   '2023-2025中考真题',
   '中考八类最值问题',
-  '中考几何21节',
-  '学而思大合集',
-  '学而思小学数学',
-  '学而思小学英语',
-  '小学语文满分作文',
-  '时光学奥数',
-  '初中必刷题',
-  '高中必刷题',
   '万唯中考',
   '53系列',
-  '高考英语GVC',
   '高中化学一本通'
 ];
+
 

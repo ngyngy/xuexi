@@ -32,8 +32,11 @@ export function filterAndSearchResources(
   // 1. Folder Directory Filter
   if (folderId) {
     list = list.filter((res) => {
-      // Direct folder match or multiple folders assignment
-      return res.folderId === folderId || (res.folderIds && res.folderIds.includes(folderId));
+      if (res.folderId === folderId || (res.folderIds && res.folderIds.includes(folderId))) return true;
+      if (folderId === 'k12' && (res.folderId === 'primary' || res.folderId === 'junior' || res.folderId === 'senior')) return true;
+      if (folderId === 'english' && res.folderId === 'cet') return true;
+      if (folderId === 'university' && res.folderId === 'cert') return true;
+      return false;
     });
   }
 
@@ -50,8 +53,10 @@ export function filterAndSearchResources(
       if (grade === '小学') return res.grade === '小学' || res.grade === '全学段';
       if (grade === '初中') return res.grade === '初中' || res.grade === '全学段';
       if (grade === '高中') return res.grade === '高中' || res.grade === '全学段';
-      if (grade === '大学/考级') return res.grade === '大学/考级' || res.grade === '全学段';
-      return true;
+      if (grade === '大学/考研' || grade === '大学/考级') return res.grade === '大学/考研' || res.grade === '大学/考级' || res.folderId === 'university';
+      if (grade === '职业/技能') return res.grade === '职业/技能' || res.folderId === 'programming' || res.folderId === 'skills';
+      if (grade === '通用/综合') return res.grade === '通用/综合' || res.folderId === 'cognition' || res.folderId === 'classics';
+      return res.grade === grade;
     });
   }
 
@@ -67,8 +72,12 @@ export function filterAndSearchResources(
       if (subject === '历史') return res.subject === '历史' || res.subject === '全科';
       if (subject === '国学/拓展') return res.subject === '国学/拓展' || res.tags.includes('国学');
       if (subject === '考级/综合') return res.subject === '考级/综合' || res.tags.includes('考级');
+      if (subject === '编程/AI') return res.subject === '编程/AI' || res.folderId === 'programming' || res.tags.includes('AI编程');
+      if (subject === '技能/实用') return res.subject === '技能/实用' || res.folderId === 'skills' || res.tags.includes('实用技能');
+      if (subject === '思维/认知') return res.subject === '思维/认知' || res.folderId === 'cognition' || res.tags.includes('思维认知');
+      if (subject === '名著/通识') return res.subject === '名著/通识' || res.folderId === 'classics' || res.tags.includes('经典通识');
       if (subject === '全科') return res.subject === '全科';
-      return true;
+      return res.subject === subject;
     });
   }
 
